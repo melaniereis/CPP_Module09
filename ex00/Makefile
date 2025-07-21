@@ -6,11 +6,11 @@
 #    By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/24 15:02:25 by meferraz          #+#    #+#              #
-#    Updated: 2025/05/27 15:17:50 by meferraz         ###   ########.fr        #
+#    Updated: 2025/07/21 17:26:20 by meferraz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        = easyfind
+NAME        = btc
 
 #------------------------------------------------------------------------------#
 #                             NAMES AND PATHS                                  #
@@ -21,9 +21,10 @@ SRC_PATH    = src
 INC_PATH    = inc
 
 HEADERS     = $(addprefix $(INC_PATH)/, ansi.h \
-										easyfind.hpp\
+										BitCoinExchange.hpp \
 				)
 SRCS        = $(addprefix $(SRC_PATH)/, main.cpp \
+										BitCoinExchange.cpp \
 				)
 OBJS        = $(SRCS:$(SRC_PATH)/%.cpp=$(BUILD_PATH)/%.o)
 

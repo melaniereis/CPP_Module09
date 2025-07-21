@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitCoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meferraz <meferraz@student.42porto.pt>     #+#  +:+       +#+        */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-05-31 13:17:13 by meferraz          #+#    #+#             */
-/*   Updated: 2025-05-31 13:17:13 by meferraz         ###   ########.fr       */
+/*   Created: 2025/05/31 13:17:13 by meferraz          #+#    #+#             */
+/*   Updated: 2025/07/21 16:14:56 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,31 @@
 
 #include <map>
 #include <string>
+#include <fstream>
+#include <sstream>
+#include <iostream>
+#include <cstdlib>
+#include <cctype>
+#include <stdexcept>
+#include <algorithm>
 
 class BitCoinExchange
 {
 	public:
-		BitCoinExchange(const std::string &filename);
+		BitCoinExchange();
+		BitCoinExchange(const BitCoinExchange& other);
 		~BitCoinExchange();
+		BitCoinExchange& operator=(const BitCoinExchange& other);
+
+		void loadDatabase(const std::string& filename);
+		void processInputFile(const std::string& filename) const;
 
 	private:
-		std::map<std::string, double> _exchangeRates;
-		std::string _filename;
-		bool _isValid;
+		std::map<std::string, float> _database;
 
-		BitCoinExchange(const BitCoinExchange &other);
-		BitCoinExchange &operator=(const BitCoinExchange &other);
-		BitCoinExchange();
+		bool isValidDate(const std::string& date) const;
+		bool isLeapYear(int year) const;
+		bool isValidValue(const std::string& valueStr, float& value) const;
+		float getExchangeRate(const std::string& date) const;
+
 };
