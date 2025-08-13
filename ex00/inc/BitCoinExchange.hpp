@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 13:17:13 by meferraz          #+#    #+#             */
-/*   Updated: 2025/07/21 16:14:56 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/08/13 21:49:43 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <cctype>
 #include <stdexcept>
 #include <algorithm>
+#include <iomanip>
 
 class BitCoinExchange
 {

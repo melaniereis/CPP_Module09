@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 17:29:50 by meferraz          #+#    #+#             */
-/*   Updated: 2025/07/21 17:33:20 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/08/13 21:53:38 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -261,15 +261,22 @@ void BitCoinExchange::processInputFile(const std::string& filename) const {
 
 	while (std::getline(file, line))
 	{
-		size_t pos = line.find('|');
+		size_t pos;
+		std::string date;
+		std::string valueStr;
+		float value;
+		float rate;
+		float result;
+
+		pos = line.find('|');
 		if (pos == std::string::npos)
 		{
 			std::cout << BRED "Error: bad input => " << line << RESET << std::endl;
 			continue;
 		}
 
-		std::string date = line.substr(0, pos);
-		std::string valueStr = line.substr(pos + 1);
+		date = line.substr(0, pos);
+		valueStr = line.substr(pos + 1);
 
 		// Trim whitespace
 		date.erase(date.find_last_not_of(" \t") + 1);
@@ -277,7 +284,6 @@ void BitCoinExchange::processInputFile(const std::string& filename) const {
 		valueStr.erase(valueStr.find_last_not_of(" \t") + 1);
 		valueStr.erase(0, valueStr.find_first_not_of(" \t"));
 
-		float value;
 		if (!isValidDate(date))
 		{
 			std::cout << BRED "Error: bad input => " << date << RESET << std::endl;
@@ -290,11 +296,9 @@ void BitCoinExchange::processInputFile(const std::string& filename) const {
 		}
 
 		try {
-			float rate = getExchangeRate(date);
-			float result = value * rate;
-			std::cout << BGRN << date << " => " << valueStr << " = " << std::fixed;
-			std::cout.precision(2);
-			std::cout << result << RESET << std::endl;
+			rate = getExchangeRate(date);
+			result = value * rate;
+			std::cout << BGRN << date << " => " << valueStr << " = " << std::fixed << std::setprecision(2) << result << RESET << std::endl;
 		} catch (const std::exception& e) {
 			std::cout << BRED "Error: " << e.what() << RESET << std::endl;
 		}
