@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 17:39:07 by meferraz          #+#    #+#             */
-/*   Updated: 2025/07/21 17:58:25 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/08/13 21:58:55 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,9 @@ bool RPN::isNumber(const std::string &token) const
  */
 int RPN::evaluate(const std::string &expression)
 {
+	while (!_stack.empty())
+		_stack.pop();
+
 	std::istringstream iss(expression);
 	std::string token;
 
