@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 17:29:50 by meferraz          #+#    #+#             */
-/*   Updated: 2025/08/13 21:53:38 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/08/14 08:16:11 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,8 @@ bool BitCoinExchange::isLeapYear(int year) const {
 
 bool BitCoinExchange::isValidDate(const std::string& date) const {
 	if (date.length() != 10) return false;
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < 10; i++)
+	{
 		if (i == 4 || i == 7)
 		{
 			if (date[i] != '-') return false;
