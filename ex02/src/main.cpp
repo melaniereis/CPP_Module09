@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:33:55 by meferraz          #+#    #+#             */
-/*   Updated: 2025/08/13 22:11:44 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/08/15 18:19:54 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ int main(int argc, char **argv)
 	std::vector<int> numbers;
 	for (int i = 1; i < argc; ++i)
 	{
+		if (argv[i][0] == '\0')
+		{
+		std::cout << BRED "❌ Error: Empty input is not allowed." RESET << std::endl;
+		return 1;
+		}
 		char *endptr;
 		long num = std::strtol(argv[i], &endptr, 10);
 		if (*endptr != '\0' || num < 0 || num > std::numeric_limits<int>::max())
