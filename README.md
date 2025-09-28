@@ -557,6 +557,6 @@ public:
 
 ---
 
-*Congratulations! 🎉 Module 09 marks the successful completion of the 42 C++ curriculum, demonstrating mastery of advanced C++ concepts, STL proficiency, and real-world application development skills. You're now equipped with professional-level C++ expertise!*
+*Module 09 marks the successful completion of the 42 C++ curriculum, demonstrating mastery of advanced C++ concepts, STL proficiency, and real-world application development skills.*
 
 **Module 09 Complete** ✨ | **Previous**: [← Module 08](https://github.com/melaniereis/CPP_Module08/)
